@@ -1,3 +1,4 @@
+import { CategoryAction } from "./category.action";
 import { CATEGORIES_ACTION_TYPES } from "./category.types";
 
 export const CATEGORIES_INITIAL_STATE = {
@@ -8,13 +9,9 @@ export const CATEGORIES_INITIAL_STATE = {
 
 export const categoriesReducer = (
   state = CATEGORIES_INITIAL_STATE,
-  action = {}
+  action = {} as CategoryAction
 ) => {
   const { type, payload } = action;
-  //*можно просто написать switch (action.type) {
-  //* case CATEGORIES_ACTION_TYPES.SET_CATEGORIES:
-  //* return { ...state, categories: action.payload };
-  //*}
   switch (type) {
     case CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START:
       return { ...state, isLoading: true };
